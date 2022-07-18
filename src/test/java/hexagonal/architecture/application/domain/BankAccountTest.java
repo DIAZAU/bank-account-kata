@@ -45,4 +45,14 @@ public class BankAccountTest {
 		verify(transactions).add(eq(deposit));
 	}
 	
+	@Test public void
+	store_a_withdrawal_transaction() {
+	
+		Transaction withdrawal = new Transaction(SYSTEM_DATE, BigDecimal.valueOf(-100), BigDecimal.valueOf(300));
+
+		account.withdraw(SYSTEM_DATE, BigDecimal.valueOf(-100));
+
+		verify(transactions).add(eq(withdrawal));
+	}
+	
 }
