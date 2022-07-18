@@ -55,4 +55,13 @@ public class BankAccountTest {
 		verify(transactions).add(eq(withdrawal));
 	}
 	
+	@Test public void
+	print_a_statement_containing_all_transactions() {
+		given(transactions.all()).willReturn(TRANSACTION_LIST);
+
+		account.printStatement();
+
+		verify(statementPrinter).print(TRANSACTION_LIST);
+	}
+	
 }
