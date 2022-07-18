@@ -6,13 +6,18 @@ public class StatementPrinter {
 	
 	public static final String STATEMENT_HEADER = "OPERATION  | DATE       | AMOUNT  | BALANCE";
 
+	private Console console;
+
 	public StatementPrinter(Console console) {
-		// TODO Auto-generated constructor stub
+		this.console = console;
 	}
 
 	public void print(List<Transaction> noTransacions) {
-		// TODO Auto-generated method stub
+		printHeader();
 		
 	}
 
+	private void printHeader() {
+		console.printLine(STATEMENT_HEADER);
+	}
 }
