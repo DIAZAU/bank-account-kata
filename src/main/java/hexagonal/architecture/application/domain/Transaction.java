@@ -8,10 +8,9 @@ public class Transaction {
 	private final BigDecimal amount;
 	private final BigDecimal balance;
 
-	public Transaction(String string, BigDecimal valueOf, BigDecimal valueOf2) {
-		this.date = string;
-		this.amount = valueOf;
-		this.balance = valueOf2;
+	public Transaction(String date, BigDecimal amount, BigDecimal balance) {
+		this.date = date;
+		this.amount = amount;
+		this.balance = balance;
 	}
-
 }
