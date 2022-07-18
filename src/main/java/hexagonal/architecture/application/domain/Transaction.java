@@ -13,4 +13,16 @@ public class Transaction {
 		this.amount = amount;
 		this.balance = balance;
 	}
+
+	public BigDecimal getAmount() {
+		return amount;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public BigDecimal getBalance() {
+		return balance;
+	}
 }
