@@ -29,8 +29,13 @@ public class BankAccount {
 	}
 
 	public void printStatement() {
-		// TODO Auto-generated method stub
-		
+		statementPrinter.print(transactions.all());
+	}
+
+	@Override
+	public String toString() {
+		return "BankAccount [ balance=" + balance + ", transactions=" + transactions
+				+ ", statementPrinter=" + statementPrinter + "]";
 	}
 
 }
