@@ -20,4 +20,12 @@ public class BankAccount {
 		transactions.add(deposit);
 	}
 
+	public void withdraw(String clock, BigDecimal amount) {
+		if (balance.compareTo(amount) > 0) {
+			balance = balance.add(amount);
+			Transaction withdraw = new Transaction(clock, amount, balance);
+			transactions.add(withdraw);
+		}
+	}
+
 }
