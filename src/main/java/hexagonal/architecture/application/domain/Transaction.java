@@ -1,5 +1,8 @@
 package hexagonal.architecture.application.domain;
 
+import static org.apache.commons.lang3.builder.EqualsBuilder.reflectionEquals;
+import static org.apache.commons.lang3.builder.HashCodeBuilder.reflectionHashCode;
+
 import java.math.BigDecimal;
 
 public class Transaction {
@@ -24,5 +27,21 @@ public class Transaction {
 
 	public BigDecimal getBalance() {
 		return balance;
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		return reflectionEquals(this, o);
+	}
+
+	@Override
+	public int hashCode() {
+		return reflectionHashCode(this);
+	}
+
+	@Override
+	public String toString() {
+		return "Transaction{ date=" + date + ", amount=" + amount + ", balance="
+				+ balance + '\'' + '}';
 	}
 }

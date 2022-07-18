@@ -16,7 +16,7 @@
 		<version>2.3.0.RELEASE</version>
 		<relativePath />
 	</parent>
-	
+
 	<dependencies>
 		<!-- Test -->
 		<dependency>
@@ -24,6 +24,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+		
 	</dependencies>
 
 	<properties>

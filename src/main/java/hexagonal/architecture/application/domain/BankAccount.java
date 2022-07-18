@@ -4,13 +4,20 @@ import java.math.BigDecimal;
 
 public class BankAccount {
 
+	private BigDecimal balance;
+	private Transactions transactions;
+	private StatementPrinter statementPrinter;
+	
 	public BankAccount(Transactions transactions, StatementPrinter statementPrinter, BigDecimal valueOf) {
-		// TODO Auto-generated constructor stub
+		this.transactions = transactions;
+		this.statementPrinter = statementPrinter;
+		this.balance = valueOf;
 	}
 
 	public void deposit(String systemDate, BigDecimal valueOf) {
-		// TODO Auto-generated method stub
-		
+		balance = balance.add(valueOf);
+		Transaction deposit = new Transaction(systemDate, valueOf, balance);
+		transactions.add(deposit);
 	}
 
 }
