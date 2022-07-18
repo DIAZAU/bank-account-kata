@@ -28,4 +28,9 @@ public class BankAccount {
 		}
 	}
 
+	public void printStatement() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
