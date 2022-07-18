@@ -8,15 +8,15 @@ public class BankAccount {
 	private Transactions transactions;
 	private StatementPrinter statementPrinter;
 	
-	public BankAccount(Transactions transactions, StatementPrinter statementPrinter, BigDecimal valueOf) {
+	public BankAccount(Transactions transactions, StatementPrinter statementPrinter, BigDecimal balance) {
 		this.transactions = transactions;
 		this.statementPrinter = statementPrinter;
-		this.balance = valueOf;
+		this.balance = balance;
 	}
 
-	public void deposit(String systemDate, BigDecimal valueOf) {
-		balance = balance.add(valueOf);
-		Transaction deposit = new Transaction(systemDate, valueOf, balance);
+	public void deposit(String systemDate, BigDecimal amount) {
+		balance = balance.add(amount);
+		Transaction deposit = new Transaction(systemDate, amount, balance);
 		transactions.add(deposit);
 	}
 
