@@ -23,4 +23,10 @@ public class BankAccountController {
 		 return depositUseCase.deposit(id, amount);
 	}
 
+	@PostMapping(value = "/{id}/withdraw/{amount}")
+	public Object withdraw(long l, BigDecimal valueOf) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
