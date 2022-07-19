@@ -25,4 +25,17 @@ class BankAccountControllerTest {
 		withdrawUseCase = Mockito.mock(WithdrawUseCase.class);
 		bankAccountController = new BankAccountController(depositUseCase, withdrawUseCase);
 	}
+	
+	@Test
+	public void should_convert_request_to_command_and_call_deposit() {
+		
+		// Given
+		doReturn(true).when(depositUseCase).deposit(1234L, BigDecimal.valueOf(100));
+
+		// When
+		val created = bankAccountController.deposit(1234L, BigDecimal.valueOf(100));
+
+		// Then
+		assertThat(created).isEqualTo(true);
+	}
 }
