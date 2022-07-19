@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Transactions {
-
 	private List<Transaction> transactionList = new ArrayList<>();
 
 	public void add(Transaction transaction) {
@@ -16,4 +15,9 @@ public class Transactions {
 	public List<Transaction> all() {
 		return unmodifiableList(transactionList);
 	}
+
+	public void setTransactionList(List<Transaction> transactionList) {
+		this.transactionList = transactionList;
+	}
+	
 }
