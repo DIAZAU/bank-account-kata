@@ -10,11 +10,13 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import hexagonal.architecture.application.port.in.DepositUseCase;
+import hexagonal.architecture.application.port.in.WithdrawUseCase;
 import lombok.val;
 
 class BankAccountControllerTest {
 
 	private DepositUseCase depositUseCase;
+	private WithdrawUseCase withdrawUseCase;
 	private BankAccountController bankAccountController;
 
 	@BeforeEach
@@ -31,6 +33,20 @@ class BankAccountControllerTest {
 
 		// When
 		val created = bankAccountController.deposit(1234L, BigDecimal.valueOf(100));
+
+		// Then
+		assertThat(created).isEqualTo(true);
+	}
+	
+	
+	@Test
+	public void should_convert_request_to_command_and_call_withdraw() {
+		
+		// Given
+		doReturn(true).when(withdrawUseCase).withdraw(1234L, BigDecimal.valueOf(-100));
+
+		// When
+		val created = bankAccountController.withdraw(1234L, BigDecimal.valueOf(-100));
 
 		// Then
 		assertThat(created).isEqualTo(true);
