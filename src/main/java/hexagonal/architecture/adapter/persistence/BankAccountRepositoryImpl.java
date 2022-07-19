@@ -13,8 +13,8 @@ public class BankAccountRepositoryImpl {
 		this.repository = repository;
 	}
 
-	public Long update(long l, BigDecimal valueOf) {
-		return repository.update(l, valueOf);
+	public Long update(Long id, BigDecimal balance) {
+		return repository.update(id, balance);
 	}
 
 }
