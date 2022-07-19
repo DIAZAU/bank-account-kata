@@ -2,15 +2,19 @@ package hexagonal.architecture.adapter.persistence;
 
 import java.math.BigDecimal;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class BankAccountRepositoryImpl {
 
-	public BankAccountRepositoryImpl(BankAccountRepository bankAccountrepository) {
-		// TODO Auto-generated constructor stub
+	private BankAccountRepository repository;
+	
+	public BankAccountRepositoryImpl(BankAccountRepository repository) {
+		this.repository = repository;
 	}
 
 	public Long update(long l, BigDecimal valueOf) {
-		// TODO Auto-generated method stub
-		return null;
+		return repository.update(l, valueOf);
 	}
 
 }
