@@ -7,26 +7,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import hexagonal.architecture.application.port.in.DepositUseCase;
+import hexagonal.architecture.application.port.in.WithdrawUseCase;
 
 @RestController
 @RequestMapping("/account")
 public class BankAccountController {
 
 	private DepositUseCase depositUseCase;
+	private final WithdrawUseCase withdrawUseCase;
 
-	public BankAccountController(DepositUseCase depositUseCase) {
+	public BankAccountController(DepositUseCase depositUseCase, WithdrawUseCase withdrawUseCase) {
 		this.depositUseCase = depositUseCase;
+		this.withdrawUseCase = withdrawUseCase;
 	}
 
 	@PostMapping(value = "/{id}/deposit/{amount}")
 	public Boolean deposit(long id, BigDecimal amount) {
-		 return depositUseCase.deposit(id, amount);
+		return depositUseCase.deposit(id, amount);
 	}
 
 	@PostMapping(value = "/{id}/withdraw/{amount}")
-	public Object withdraw(long l, BigDecimal valueOf) {
-		// TODO Auto-generated method stub
-		return null;
+	public Boolean withdraw(long i, BigDecimal valueOf) {
+		return withdrawUseCase.withdraw(i, valueOf);
 	}
 
 }

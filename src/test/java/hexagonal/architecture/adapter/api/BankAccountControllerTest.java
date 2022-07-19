@@ -22,7 +22,8 @@ class BankAccountControllerTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		depositUseCase = Mockito.mock(DepositUseCase.class);
-		bankAccountController = new BankAccountController(depositUseCase);
+		withdrawUseCase = Mockito.mock(WithdrawUseCase.class);
+		bankAccountController = new BankAccountController(depositUseCase, withdrawUseCase);
 	}
 	
 	@Test
