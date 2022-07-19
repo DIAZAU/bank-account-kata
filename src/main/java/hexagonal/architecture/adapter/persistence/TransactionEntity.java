@@ -36,4 +36,11 @@ public class TransactionEntity {
 	@JoinColumn(name = "transaction_account_id")
 	private BankAccountEntity account;
 	
+
+	@Override
+	public String toString() {
+		return "TransactionEntity [id=" + id + ", date=" + date + ", amount=" + amount + ", balance=" + balance
+				+ ", account=" + account + "]";
+	}
+	
 }

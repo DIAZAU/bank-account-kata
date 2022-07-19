@@ -60,5 +60,30 @@ class BankAccountServiceTest {
 		assertThat(bankAccount.getBalance()).isEqualTo(amount);
 
 	}
+	
+	@Test
+	public void store_a_withdraw_transaction() {
+
+		val bankAccount = mock(BankAccount.class);
+		val transaction = mock(Transaction.class);
+
+		doReturn(Optional.of(bankAccount)).when(loadAccountPort).load(1234L);
+		doReturn(transaction).when(bankAccount).withdraw(SYSTEM_DATE, BigDecimal.valueOf(50));
+		doReturn(1234L).when(bankAccount).getId();
+		doReturn(BigDecimal.valueOf(50)).when(bankAccount).getBalance();
+
+		// Given
+		val id = 1234L;
+		val amount = BigDecimal.valueOf(50);
+
+		// When
+		val deposit = service.withdraw(id, amount);
+
+		// Then
+		assertThat(true).isEqualTo(deposit);
+		assertThat(bankAccount.getId()).isEqualTo(id);
+		assertThat(bankAccount.getBalance()).isEqualTo(amount);
+
+	}
 
 }
